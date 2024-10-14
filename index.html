@@ -1,1 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SMART IEP Goal Creator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <div class="container">
+        <h1>SMART IEP Goal Creator</h1>
+        <form id="iep-form">
+            <!-- Basic Information Section -->
+            <fieldset>
+                <legend>Basic Information</legend>
+                <div class="form-group">
+                    <label for="deadline">By (month and year): <span class="required">*</span></label>
+                    <input type="month" id="deadline" name="deadline" required>
+                    <small>Select the deadline for the IEP goal.</small>
+                </div>
+                <div class="form-group">
+                    <label for="student-name">Student's Name: <span class="required">*</span></label>
+                    <input type="text" id="student-name" name="student-name" placeholder="Enter student's full name" required>
+                </div>
+            </fieldset>
+
+            <!-- Conditions/Supports/Accommodations Section -->
+            <fieldset>
+                <legend>Conditions/Supports/Accommodations</legend>
+                <div class="form-group">
+                    <label>Select from the list:</label>
+                    <input type="text" id="condition-search" placeholder="Search conditions..." onkeyup="filterCheckboxes('condition-checkboxes', 'condition-search')">
+                    <div id="condition-checkboxes" class="checkbox-group">
+                        <!-- Categories and options -->
+                        <!-- Environmental Supports -->
+                        <div class="category">
+                            <h3>Environmental Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="placement in a quiet, low-distraction area"> Placement in a quiet, low-distraction area</label>
+                                <label><input type="checkbox" value="preferential seating near the teacher"> Preferential seating near the teacher</label>
+                                <label><input type="checkbox" value="small group instruction"> Small group instruction</label>
+                                <label><input type="checkbox" value="use of noise-canceling headphones"> Use of noise-canceling headphones</label>
+                                <label><input type="checkbox" value="access to a sensory-friendly space"> Access to a sensory-friendly space</label>
+                                <label><input type="checkbox" value="modified lighting (e.g., natural light, dimmed lights)"> Modified lighting (e.g., natural light, dimmed lights)</label>
+                                <label><input type="checkbox" value="minimal visual distractions (e.g., uncluttered workspace)"> Minimal visual distractions (e.g., uncluttered workspace)</label>
+                                <label><input type="checkbox" value="temperature control in the classroom"> Temperature control in the classroom</label>
+                                <label><input type="checkbox" value="quiet corner or designated calm area"> Quiet corner or designated calm area</label>
+                                <label><input type="checkbox" value="structured classroom layout with clear boundaries"> Structured classroom layout with clear boundaries</label>
+                            </div>
+                        </div>
+
+                        <!-- Visual Supports -->
+                        <div class="category">
+                            <h3>Visual Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="visual schedules with icons"> Visual schedules with icons</label>
+                                <label><input type="checkbox" value="picture cards for vocabulary"> Picture cards for vocabulary</label>
+                                <label><input type="checkbox" value="highlighted and color-coded materials"> Highlighted and color-coded materials</label>
+                                <label><input type="checkbox" value="graphic organizers like mind maps"> Graphic organizers like mind maps</label>
+                                <label><input type="checkbox" value="visual timers to indicate time left"> Visual timers to indicate time left</label>
+                                <label><input type="checkbox" value="step-by-step visual instructions"> Step-by-step visual instructions</label>
+                                <label><input type="checkbox" value="use of charts and diagrams to illustrate concepts"> Use of charts and diagrams to illustrate concepts</label>
+                                <label><input type="checkbox" value="written instructions alongside verbal instructions"> Written instructions alongside verbal instructions</label>
+                                <label><input type="checkbox" value="color-coded folders and notebooks for organization"> Color-coded folders and notebooks for organization</label>
+                                <label><input type="checkbox" value="visual cues for classroom routines"> Visual cues for classroom routines</label>
+                            </div>
+                        </div>
+
+                        <!-- Verbal Supports -->
+                        <div class="category">
+                            <h3>Verbal Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="verbal prompts to stay on task"> Verbal prompts to stay on task</label>
+                                <label><input type="checkbox" value="echoic prompts for vocabulary building"> Echoic prompts for vocabulary building</label>
+                                <label><input type="checkbox" value="clear and concise instructions"> Clear and concise instructions</label>
+                                <label><input type="checkbox" value="repetition of instructions when needed"> Repetition of instructions when needed</label>
+                                <label><input type="checkbox" value="comprehension checks during tasks"> Comprehension checks during tasks</label>
+                                <label><input type="checkbox" value="simplified language without jargon"> Simplified language without jargon</label>
+                                <label><input type="checkbox" value="using the student's name to gain attention"> Using the student's name to gain attention</label>
+                                <label><input type="checkbox" value="providing examples and non-examples verbally"> Providing examples and non-examples verbally</label>
+                                <label><input type="checkbox" value="allowing extra processing time after verbal instructions"> Allowing extra processing time after verbal instructions</label>
+                                <label><input type="checkbox" value="paraphrasing instructions to ensure understanding"> Paraphrasing instructions to ensure understanding</label>
+                            </div>
+                        </div>
+
+                        <!-- Physical and Sensory Accommodations -->
+                        <div class="category">
+                            <h3>Physical and Sensory Accommodations</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="use of fidget tools like stress balls"> Use of fidget tools like stress balls</label>
+                                <label><input type="checkbox" value="scheduled movement breaks every 30 minutes"> Scheduled movement breaks every 30 minutes</label>
+                                <label><input type="checkbox" value="adaptive seating like wobble cushions"> Adaptive seating like wobble cushions</label>
+                                <label><input type="checkbox" value="access to weighted blankets or vests"> Access to weighted blankets or vests</label>
+                                <label><input type="checkbox" value="tactile learning tools like manipulatives"> Tactile learning tools like manipulatives</label>
+                                <label><input type="checkbox" value="standing desks or adjustable workstations"> Standing desks or adjustable workstations</label>
+                                <label><input type="checkbox" value="sensory bins or tactile stations"> Sensory bins or tactile stations</label>
+                                <label><input type="checkbox" value="noise-dampening headphones during loud activities"> Noise-dampening headphones during loud activities</label>
+                                <label><input type="checkbox" value="opportunities for heavy work activities (e.g., pushing, pulling)"> Opportunities for heavy work activities (e.g., pushing, pulling)</label>
+                                <label><input type="checkbox" value="use of scent-free materials to reduce sensory overload"> Use of scent-free materials to reduce sensory overload</label>
+                            </div>
+                        </div>
+
+                        <!-- Assistive Technology -->
+                        <div class="category">
+                            <h3>Assistive Technology</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="text-to-speech software for reading support"> Text-to-speech software for reading support</label>
+                                <label><input type="checkbox" value="AAC device for communication support"> AAC device for communication support</label>
+                                <label><input type="checkbox" value="educational apps on a tablet"> Educational apps on a tablet</label>
+                                <label><input type="checkbox" value="specialized keyboards with large keys"> Specialized keyboards with large keys</label>
+                                <label><input type="checkbox" value="predictive text tools for writing"> Predictive text tools for writing</label>
+                                <label><input type="checkbox" value="screen readers for visually impaired students"> Screen readers for visually impaired students</label>
+                                <label><input type="checkbox" value="voice recognition software for writing assistance"> Voice recognition software for writing assistance</label>
+                                <label><input type="checkbox" value="magnification devices for reading small text"> Magnification devices for reading small text</label>
+                                <label><input type="checkbox" value="switch-operated devices for accessibility"> Switch-operated devices for accessibility</label>
+                                <label><input type="checkbox" value="closed captioning for videos"> Closed captioning for videos</label>
+                            </div>
+                        </div>
+
+                        <!-- Academic Supports -->
+                        <div class="category">
+                            <h3>Academic Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="extended time on tasks and tests"> Extended time on tasks and tests</label>
+                                <label><input type="checkbox" value="chunking assignments into smaller steps"> Chunking assignments into smaller steps</label>
+                                <label><input type="checkbox" value="modified worksheets with larger font"> Modified worksheets with larger font</label>
+                                <label><input type="checkbox" value="alternate formats for assignments"> Alternate formats for assignments</label>
+                                <label><input type="checkbox" value="use of manipulatives for learning concepts"> Use of manipulatives for learning concepts</label>
+                                <label><input type="checkbox" value="graphic organizers for writing tasks"> Graphic organizers for writing tasks</label>
+                                <label><input type="checkbox" value="reading materials at adjusted readability levels"> Reading materials at adjusted readability levels</label>
+                                <label><input type="checkbox" value="frequent feedback on assignments"> Frequent feedback on assignments</label>
+                                <label><input type="checkbox" value="providing study guides or outlines in advance"> Providing study guides or outlines in advance</label>
+                                <label><input type="checkbox" value="allowing oral responses instead of written ones"> Allowing oral responses instead of written ones</label>
+                                <label><input type="checkbox" value="simplified language on assignments"> Simplified language on assignments</label>
+                                <label><input type="checkbox" value="use of calculators or math aids"> Use of calculators or math aids</label>
+                                <label><input type="checkbox" value="peer tutoring or buddy system"> Peer tutoring or buddy system</label>
+                                <label><input type="checkbox" value="pre-teaching of new concepts"> Pre-teaching of new concepts</label>
+                                <label><input type="checkbox" value="visual aids for abstract concepts"> Visual aids for abstract concepts</label>
+                            </div>
+                        </div>
+
+                        <!-- Behavioral Supports -->
+                        <div class="category">
+                            <h3>Behavioral Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="positive reinforcement system with tokens"> Positive reinforcement system with tokens</label>
+                                <label><input type="checkbox" value="social stories to model behaviors"> Social stories to model behaviors</label>
+                                <label><input type="checkbox" value="scheduled reinforcement after tasks"> Scheduled reinforcement after tasks</label>
+                                <label><input type="checkbox" value="structured choice-making opportunities"> Structured choice-making opportunities</label>
+                                <label><input type="checkbox" value="visual reminders for behavior expectations"> Visual reminders for behavior expectations</label>
+                                <label><input type="checkbox" value="behavior contracts outlining expectations"> Behavior contracts outlining expectations</label>
+                                <label><input type="checkbox" value="break cards to request a break when needed"> Break cards to request a break when needed</label>
+                                <label><input type="checkbox" value="daily behavior charts sent home"> Daily behavior charts sent home</label>
+                                <label><input type="checkbox" value="proximity control (teacher stays near the student)"> Proximity control (teacher stays near the student)</label>
+                                <label><input type="checkbox" value="calming techniques (deep breathing, counting)"> Calming techniques (deep breathing, counting)</label>
+                            </div>
+                        </div>
+
+                        <!-- Social and Communication Supports -->
+                        <div class="category">
+                            <h3>Social and Communication Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="peer buddy for social interaction support"> Peer buddy for social interaction support</label>
+                                <label><input type="checkbox" value="social skills training through role-playing"> Social skills training through role-playing</label>
+                                <label><input type="checkbox" value="structured social interactions during activities"> Structured social interactions during activities</label>
+                                <label><input type="checkbox" value="practice with turn-taking games"> Practice with turn-taking games</label>
+                                <label><input type="checkbox" value="guided instruction on non-verbal cues"> Guided instruction on non-verbal cues</label>
+                                <label><input type="checkbox" value="use of communication aids (AAC devices, communication boards)"> Use of communication aids (AAC devices, communication boards)</label>
+                                <label><input type="checkbox" value="group activities to promote teamwork"> Group activities to promote teamwork</label>
+                                <label><input type="checkbox" value="explicit teaching of conversation skills"> Explicit teaching of conversation skills</label>
+                                <label><input type="checkbox" value="facilitated peer interactions during recess"> Facilitated peer interactions during recess</label>
+                                <label><input type="checkbox" value="video modeling of social situations"> Video modeling of social situations</label>
+                            </div>
+                        </div>
+
+                        <!-- Executive Functioning Supports -->
+                        <div class="category">
+                            <h3>Executive Functioning Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="task analysis with step-by-step checklists"> Task analysis with step-by-step checklists</label>
+                                <label><input type="checkbox" value="time management tools like timers"> Time management tools like timers</label>
+                                <label><input type="checkbox" value="organizational tools like labeled folders"> Organizational tools like labeled folders</label>
+                                <label><input type="checkbox" value="explicit instruction on goal-setting"> Explicit instruction on goal-setting</label>
+                                <label><input type="checkbox" value="support for transitions with reminders"> Support for transitions with reminders</label>
+                                <label><input type="checkbox" value="use of graphic organizers for written work"> Use of graphic organizers for written work</label>
+                                <label><input type="checkbox" value="daily planners or agendas for tracking assignments"> Daily planners or agendas for tracking assignments</label>
+                                <label><input type="checkbox" value="visual countdowns for upcoming transitions"> Visual countdowns for upcoming transitions</label>
+                                <label><input type="checkbox" value="check-in/check-out systems with a mentor"> Check-in/check-out systems with a mentor</label>
+                                <label><input type="checkbox" value="modeling and practice of self-monitoring techniques"> Modeling and practice of self-monitoring techniques</label>
+                            </div>
+                        </div>
+
+                        <!-- Medical and Health Supports -->
+                        <div class="category">
+                            <h3>Medical and Health Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="administering medication during school hours"> Administering medication during school hours</label>
+                                <label><input type="checkbox" value="individual health care plan implementation"> Individual health care plan implementation</label>
+                                <label><input type="checkbox" value="monitoring blood sugar levels for diabetes management"> Monitoring blood sugar levels for diabetes management</label>
+                                <label><input type="checkbox" value="seizure action plan awareness and training"> Seizure action plan awareness and training</label>
+                                <label><input type="checkbox" value="access to snacks or water as needed for health reasons"> Access to snacks or water as needed for health reasons</label>
+                            </div>
+                        </div>
+
+                        <!-- Mobility and Physical Access Supports -->
+                        <div class="category">
+                            <h3>Mobility and Physical Access Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="use of wheelchair-accessible facilities"> Use of wheelchair-accessible facilities</label>
+                                <label><input type="checkbox" value="elevator access for students with mobility issues"> Elevator access for students with mobility issues</label>
+                                <label><input type="checkbox" value="assistance with mobility around the school"> Assistance with mobility around the school</label>
+                                <label><input type="checkbox" value="adaptive physical education equipment"> Adaptive physical education equipment</label>
+                                <label><input type="checkbox" value="modified physical activities to suit abilities"> Modified physical activities to suit abilities</label>
+                            </div>
+                        </div>
+
+                        <!-- Adaptive Communication Supports -->
+                        <div class="category">
+                            <h3>Adaptive Communication Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="sign language interpretation services"> Sign language interpretation services</label>
+                                <label><input type="checkbox" value="use of Braille materials for visually impaired students"> Use of Braille materials for visually impaired students</label>
+                                <label><input type="checkbox" value="communication notebooks between home and school"> Communication notebooks between home and school</label>
+                                <label><input type="checkbox" value="visual scene displays for communication"> Visual scene displays for communication</label>
+                                <label><input type="checkbox" value="augmentative and alternative communication devices"> Augmentative and alternative communication devices</label>
+                            </div>
+                        </div>
+
+                        <!-- Testing and Assessment Accommodations -->
+                        <div class="category">
+                            <h3>Testing and Assessment Accommodations</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="extended time for tests and quizzes"> Extended time for tests and quizzes</label>
+                                <label><input type="checkbox" value="testing in a separate, quiet location"> Testing in a separate, quiet location</label>
+                                <label><input type="checkbox" value="use of a scribe for written responses"> Use of a scribe for written responses</label>
+                                <label><input type="checkbox" value="allowing breaks during testing sessions"> Allowing breaks during testing sessions</label>
+                                <label><input type="checkbox" value="providing tests in large print or Braille"> Providing tests in large print or Braille</label>
+                                <label><input type="checkbox" value="use of word processors for essay responses"> Use of word processors for essay responses</label>
+                                <label><input type="checkbox" value="reading test questions aloud to the student"> Reading test questions aloud to the student</label>
+                                <label><input type="checkbox" value="clarifying test instructions as needed"> Clarifying test instructions as needed</label>
+                                <label><input type="checkbox" value="use of calculators on math tests"> Use of calculators on math tests</label>
+                                <label><input type="checkbox" value="alternative formats for assessments (oral, projects)"> Alternative formats for assessments (oral, projects)</label>
+                            </div>
+                        </div>
+
+                        <!-- Additional Supports -->
+                        <div class="category">
+                            <h3>Additional Supports</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="daily check-ins with a counselor or mentor"> Daily check-ins with a counselor or mentor</label>
+                                <label><input type="checkbox" value="parent-teacher communication plan"> Parent-teacher communication plan</label>
+                                <label><input type="checkbox" value="referral to external support services"> Referral to external support services</label>
+                                <label><input type="checkbox" value="inclusion in social clubs or groups"> Inclusion in social clubs or groups</label>
+                                <label><input type="checkbox" value="staff training on specific disabilities"> Staff training on specific disabilities</label>
+                                <label><input type="checkbox" value="cultural or linguistic accommodations"> Cultural or linguistic accommodations</label>
+                                <label><input type="checkbox" value="providing meals that meet dietary restrictions"> Providing meals that meet dietary restrictions</label>
+                                <label><input type="checkbox" value="transition planning for post-school life"> Transition planning for post-school life</label>
+                                <label><input type="checkbox" value="career counseling and vocational training"> Career counseling and vocational training</label>
+                                <label><input type="checkbox" value="support for participation in extracurricular activities"> Support for participation in extracurricular activities</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="custom-conditions">Add Custom Conditions/Supports/Accommodations:</label>
+                    <textarea id="custom-conditions" name="custom-conditions" rows="3" placeholder="Enter custom conditions, separated by commas"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Skills/Behaviors Section -->
+            <fieldset>
+                <legend>Skills/Behaviors</legend>
+                <div class="form-group">
+                    <label for="skills">Will (clearly defined skill or behavior): <span class="required">*</span></label>
+                    <textarea id="skills" name="skills" rows="3" placeholder="Describe the specific skill(s) or behavior(s)" required></textarea>
+                    <small>You can enter multiple skills or behaviors, separated by semicolons (;)</small>
+                </div>
+            </fieldset>
+
+            <!-- Alignment to Standards Section -->
+            <fieldset>
+                <legend>Alignment to Maryland College and Career Ready Standards</legend>
+                <div class="form-group">
+                    <label for="content-area">Content Area: <span class="required">*</span></label>
+                    <select id="content-area" name="content-area" required>
+                        <option value="">-- Select Content Area --</option>
+                        <option value="math">Mathematics</option>
+                        <option value="ela">English Language Arts</option>
+                        <!-- Add more content areas if applicable -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="grade-level">Grade Level: <span class="required">*</span></label>
+                    <select id="grade-level" name="grade-level" required>
+                        <option value="">-- Select Grade Level --</option>
+                        <option value="K">Kindergarten</option>
+                        <option value="1">1st Grade</option>
+                        <option value="2">2nd Grade</option>
+                        <option value="3">3rd Grade</option>
+                        <option value="4">4th Grade</option>
+                        <option value="5">5th Grade</option>
+                        <option value="6">6th Grade</option>
+                        <option value="7">7th Grade</option>
+                        <option value="8">8th Grade</option>
+                        <option value="9">9th Grade</option>
+                        <option value="10">10th Grade</option>
+                        <option value="11">11th Grade</option>
+                        <option value="12">12th Grade</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Select Relevant Standards:</label>
+                    <input type="text" id="standard-search" placeholder="Search standards..." onkeyup="filterStandards()">
+                    <div id="standards-loading" style="display: none;">
+                        <p>Loading standards...</p>
+                    </div>
+                    <div id="standards-checkboxes" class="checkbox-group" style="display: none;">
+                        <!-- Standards will be dynamically populated here -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="custom-standards">Add Custom Standards:</label>
+                    <textarea id="custom-standards" name="custom-standards" rows="3" placeholder="Enter custom standards, separated by commas"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Criteria for Success Section -->
+            <fieldset>
+                <legend>Criteria for Success</legend>
+                <div class="form-group">
+                    <label for="accuracy">With (percentage accuracy): <span class="required">*</span></label>
+                    <input type="number" id="accuracy" name="accuracy" min="1" max="100" required>
+                    <span>%</span>
+                </div>
+                <div class="form-group">
+                    <label for="trials">On (specific number) out of (total number of trials/sessions): <span class="required">*</span></label>
+                    <input type="number" id="specific-number" name="specific-number" min="1" required>
+                    <span>out of</span>
+                    <input type="number" id="total-number" name="total-number" min="1" required>
+                    <span>trials/sessions</span>
+                </div>
+            </fieldset>
+
+            <!-- Measurement Methods Section -->
+            <fieldset>
+                <legend>Measurement Methods</legend>
+                <div class="form-group">
+                    <label>Select from the list:</label>
+                    <input type="text" id="measurement-search" placeholder="Search measurements..." onkeyup="filterCheckboxes('measurement-checkboxes', 'measurement-search')">
+                    <div id="measurement-checkboxes" class="checkbox-group">
+                        <!-- Measurement Methods -->
+                        <!-- Direct Observation -->
+                        <div class="category">
+                            <h3>Direct Observation</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="teacher observation checklist"> Teacher observation checklist</label>
+                                <label><input type="checkbox" value="frequency counts of behavior"> Frequency counts of behavior</label>
+                                <label><input type="checkbox" value="duration recording of tasks"> Duration recording of tasks</label>
+                                <label><input type="checkbox" value="interval recording during activities"> Interval recording during activities</label>
+                                <label><input type="checkbox" value="ABC (Antecedent-Behavior-Consequence) data collection"> ABC (Antecedent-Behavior-Consequence) data collection</label>
+                                <label><input type="checkbox" value="time sampling methods"> Time sampling methods</label>
+                            </div>
+                        </div>
+
+                        <!-- Data Collection Sheets -->
+                        <div class="category">
+                            <h3>Data Collection Sheets</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="daily data sheets noting accuracy"> Daily data sheets noting accuracy</label>
+                                <label><input type="checkbox" value="task analysis recording for skill acquisition"> Task analysis recording for skill acquisition</label>
+                                <label><input type="checkbox" value="prompt level tracking to measure independence"> Prompt level tracking to measure independence</label>
+                                <label><input type="checkbox" value="error analysis of academic work"> Error analysis of academic work</label>
+                                <label><input type="checkbox" value="log of completed assignments and tasks"> Log of completed assignments and tasks</label>
+                            </div>
+                        </div>
+
+                        <!-- Progress Monitoring Tools -->
+                        <div class="category">
+                            <h3>Progress Monitoring Tools</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="curriculum-based measurements (CBMs)"> Curriculum-based measurements (CBMs)</label>
+                                <label><input type="checkbox" value="benchmark assessments for grade-level standards"> Benchmark assessments for grade-level standards</label>
+                                <label><input type="checkbox" value="criterion-referenced tests"> Criterion-referenced tests</label>
+                                <label><input type="checkbox" value="standardized assessment scores"> Standardized assessment scores</label>
+                                <label><input type="checkbox" value="portfolio assessments"> Portfolio assessments</label>
+                            </div>
+                        </div>
+
+                        <!-- Work Samples and Portfolios -->
+                        <div class="category">
+                            <h3>Work Samples and Portfolios</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="student work samples over time"> Student work samples over time</label>
+                                <label><input type="checkbox" value="portfolio of completed tasks"> Portfolio of completed tasks</label>
+                                <label><input type="checkbox" value="rubrics for assignments or performances"> Rubrics for assignments or performances</label>
+                                <label><input type="checkbox" value="video recordings of presentations or skills"> Video recordings of presentations or skills</label>
+                                <label><input type="checkbox" value="artifacts from project-based learning"> Artifacts from project-based learning</label>
+                            </div>
+                        </div>
+
+                        <!-- Checklists and Rating Scales -->
+                        <div class="category">
+                            <h3>Checklists and Rating Scales</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="behavioral rating scales"> Behavioral rating scales</label>
+                                <label><input type="checkbox" value="skill acquisition checklists"> Skill acquisition checklists</label>
+                                <label><input type="checkbox" value="teacher and peer ratings"> Teacher and peer ratings</label>
+                                <label><input type="checkbox" value="social skills checklists"> Social skills checklists</label>
+                                <label><input type="checkbox" value="executive functioning assessments"> Executive functioning assessments</label>
+                            </div>
+                        </div>
+
+                        <!-- Quizzes and Tests -->
+                        <div class="category">
+                            <h3>Quizzes and Tests</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="regular quizzes on content areas"> Regular quizzes on content areas</label>
+                                <label><input type="checkbox" value="pre- and post-tests to measure growth"> Pre- and post-tests to measure growth</label>
+                                <label><input type="checkbox" value="end-of-unit tests"> End-of-unit tests</label>
+                                <label><input type="checkbox" value="spelling tests for literacy skills"> Spelling tests for literacy skills</label>
+                                <label><input type="checkbox" value="math fact fluency assessments"> Math fact fluency assessments</label>
+                            </div>
+                        </div>
+
+                        <!-- Self-Monitoring and Self-Assessment -->
+                        <div class="category">
+                            <h3>Self-Monitoring and Self-Assessment</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="student self-checklists"> Student self-checklists</label>
+                                <label><input type="checkbox" value="self-rating scales"> Self-rating scales</label>
+                                <label><input type="checkbox" value="reflection journals"> Reflection journals</label>
+                                <label><input type="checkbox" value="goal-setting and tracking sheets"> Goal-setting and tracking sheets</label>
+                                <label><input type="checkbox" value="exit tickets after lessons"> Exit tickets after lessons</label>
+                            </div>
+                        </div>
+
+                        <!-- Parent/Guardian Input -->
+                        <div class="category">
+                            <h3>Parent/Guardian Input</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="home observation checklists"> Home observation checklists</label>
+                                <label><input type="checkbox" value="parent surveys or ratings"> Parent surveys or ratings</label>
+                                <label><input type="checkbox" value="communication logs between home and school"> Communication logs between home and school</label>
+                                <label><input type="checkbox" value="parent-teacher conferences notes"> Parent-teacher conferences notes</label>
+                                <label><input type="checkbox" value="daily behavior reports sent home"> Daily behavior reports sent home</label>
+                            </div>
+                        </div>
+
+                        <!-- Goal-Specific Tools -->
+                        <div class="category">
+                            <h3>Goal-Specific Tools</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="social skills observation checklists"> Social skills observation checklists</label>
+                                <label><input type="checkbox" value="functional behavior assessment (FBA)"> Functional behavior assessment (FBA)</label>
+                                <label><input type="checkbox" value="sensory response log"> Sensory response log</label>
+                                <label><input type="checkbox" value="reading fluency assessments"> Reading fluency assessments</label>
+                                <label><input type="checkbox" value="language proficiency tests"> Language proficiency tests</label>
+                            </div>
+                        </div>
+
+                        <!-- Technology-Based Assessments -->
+                        <div class="category">
+                            <h3>Technology-Based Assessments</h3>
+                            <div class="category-content">
+                                <label><input type="checkbox" value="educational software progress reports"> Educational software progress reports</label>
+                                <label><input type="checkbox" value="computer-based adaptive assessments"> Computer-based adaptive assessments</label>
+                                <label><input type="checkbox" value="online quizzes and activities tracking"> Online quizzes and activities tracking</label>
+                                <label><input type="checkbox" value="data from assistive technology devices"> Data from assistive technology devices</label>
+                                <label><input type="checkbox" value="typing speed and accuracy tests"> Typing speed and accuracy tests</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="custom-measurements">Add Custom Measurement Methods:</label>
+                    <textarea id="custom-measurements" name="custom-measurements" rows="3" placeholder="Enter custom measurement methods, separated by commas"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Live Preview Section -->
+            <fieldset>
+                <legend>Generated SMART IEP Goal</legend>
+                <div id="iep-goal-output" contenteditable="true"></div>
+                <small>You can edit the generated goal directly before finalizing.</small>
+            </fieldset>
+
+            <!-- Form Buttons -->
+            <div class="form-buttons">
+                <button type="button" id="generate-button"><i class="fas fa-sync-alt"></i> Generate IEP Goal</button>
+                <button type="button" id="download-button"><i class="fas fa-file-download"></i> Download Goal</button>
+                <button type="button" id="clear-button"><i class="fas fa-trash-alt"></i> Clear Form</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
